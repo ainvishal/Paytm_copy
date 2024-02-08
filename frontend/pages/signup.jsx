@@ -16,7 +16,7 @@ export function Signup() {
                 <Inputfield label="Email" placeholder="Email"/>
                 <Inputfield label="Password" placeholder="password"/>
                 <div className="py-2 px-2">
-                  <Button label="Sign up" />
+                  <Button label="Sign up"  />
                 </div>
                 <Bottonlink label="are you already an existing user?" bottontext="Sign in" to={"/signin"}/>
               </div>
