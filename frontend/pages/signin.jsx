@@ -28,7 +28,7 @@ export function Signin() {
                                     password: password
                                 })
                                 if( responce.data.token){
-                                    localStorage.getItem('responce', responce.data.token);
+                                    localStorage.setItem('responce', responce.data.token);
                                     navigate('/dashbord')
                                 }
                                 setuser(responce.data.exits)

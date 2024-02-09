@@ -2,12 +2,16 @@ const express = require('express');
 const {Accounts} = require('../db');
 const auths = require('../middleware')
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken')
+const {JWT_SECRET} = require('../config')
 
 
 const accountrouter = express.Router();
 
 accountrouter.get('/balence', async(req, res) => {
-    const userid = req.body.userId;
+    const token = req.query.id;
+    const verifiedtoken = jwt.verify(token, JWT_SECRET)
+    const userid = verifiedtoken.userid
     const useraccount = await Accounts.findOne({
         userId: userid
     })
@@ -21,8 +25,11 @@ accountrouter.post('/transfer', async(req, res) => {
     const session = await mongoose.startSession();
 
     session.startTransaction();
+    const token = req.body.userid;
+    const verifiedtoken = jwt.verify(token, JWT_SECRET)
+    const userid = verifiedtoken.userid
     const account = await Accounts.findOne({
-        userId: req.body.userId
+        userId: userid
     }).session(session)
     if(!account || account.balence < req.body.balence) {
         session.abortTransaction();
@@ -41,8 +48,8 @@ accountrouter.post('/transfer', async(req, res) => {
         })
     }
     const amount = req.body.amount;
-    await Accounts.updateOne({ userId:account._id}, { $inc : {balence: -amount}}).session(session)
-    await Accounts.updateOne({ userId:toaccount._id }, { $inc : {balence: amount}}).session(session)
+    await Accounts.updateOne({ _id:account._id}, { $inc : {balence: -amount}}).session(session)
+    await Accounts.updateOne({ _id:toaccount._id }, { $inc : {balence: amount}}).session(session)
 
     await session.commitTransaction();
     res.status(200).json({
