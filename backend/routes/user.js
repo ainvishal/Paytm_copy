@@ -49,12 +49,14 @@ userRoute.post('/signup', async(req, res) => {
         })
         res.status(200).json({
             msg:'user is succesfully created',
-            token: token
+            token: token,
+            exits: false
         })
     }
     else {
-        res.status(401).json({
-            msg: 'email already exits'
+        res.status(200).json({
+            msg: 'email already exits',
+            exits: true
         })
     }
 
@@ -68,7 +70,7 @@ const signinids = Zod.object({
     password: Zod.string()
 })
 
-userRoute.get('/signin', async (req, res) => {
+userRoute.post('/signin', async (req, res) => {
     const {success} = signinids.safeParse(req.body)
     if(!success) {
         res.status(401).json({
@@ -77,14 +79,24 @@ userRoute.get('/signin', async (req, res) => {
     }
     const existingUser = await User.findOne({email:req.body.email, password:req.body.password});
     if(!existingUser) {
-        res.status(401).json({
-            msg : "error in login"
+        res.status(200).json({
+            msg : "error in login",
+            exits : true
         })
     }
-    const token = jwt.sign({userid: existingUser._id}, JWT_SECRET);
-    res.status(200).json({
-        token : token
-    })
+    
+    try{
+        const userid = existingUser._id
+        const token = jwt.sign({userid}, JWT_SECRET);
+        res.status(200).json({
+            token : token,
+            exits: false
+        })
+    }catch(err) {
+        console.error('the error is '+err)
+    }
+
+
 })
 
 const updatedbody = Zod.object({
