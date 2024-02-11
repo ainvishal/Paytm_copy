@@ -30,7 +30,7 @@ export function Signup() {
                 <Inputfield label="Password" placeholder="password" value={password} onchange={(e) => {setpass(e.target.value)}}/>
                 <div className="py-2 px-2">
                   <Button label="Sign up"   onclick={ async() => {
-                      const responce = await axios.post("http://localhost:3000/api/v1/user/signup",{
+                      const responce = await axios.post(`${window.location.origin}/api/v1/user/signup`,{
                         email:email,
                         firstName:firstName,
                         lastName:lastName,
