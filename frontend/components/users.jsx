@@ -10,7 +10,7 @@ export function Users() {
 
     useEffect(() => {
         async function getUsers() {
-            const responce = await axios.get(`http://localhost:3000/api/v1/user/bulk` ,{
+            const responce = await axios.get(`https://paytm-copy-server.vercel.app/api/v1/user/bulk` ,{
                 params: {
                     filter: name
                 }

@@ -5,7 +5,7 @@ export function Balence() {
     useEffect( () => {
         async function getResponce() {
             const userid = localStorage.getItem('responce')
-            const responce = await axios.get(`http://localhost:3000/api/v1/account/balence`, {
+            const responce = await axios.get(`https://paytm-copy-server.vercel.app/api/v1/account/balence`, {
                 params: {
                     id: userid
                 }

@@ -46,7 +46,7 @@ export function Sendmoney() {
                             <Button label={"Initiate Transfer"} onclick={ async() => {
 
 
-                                const transferResponce = await axios.post(`http://localhost:3000/api/v1/account/transfer`, {
+                                const transferResponce = await axios.post(`https://paytm-copy-server.vercel.app/api/v1/account/transfer`, {
                                     userid: userid,
                                     balence:balence,
                                     to:toid,
