@@ -126,7 +126,7 @@ userRoute.get('/bulk', async(req, res) => {
         $or : [
             {
                 firstName: {"$regex": filter},
-
+                lastName: {"$regex": filter}
             }
 
         ]
