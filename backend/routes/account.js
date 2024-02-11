@@ -1,6 +1,5 @@
 const express = require('express');
 const {Accounts} = require('../db');
-const auths = require('../middleware')
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET} = require('../config')
