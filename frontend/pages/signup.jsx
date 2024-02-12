@@ -44,7 +44,7 @@ export function Signup() {
                       
                   }}/>
                 </div>
-                <Bottonlink label="are you already an existing user?" bottontext="Sign in" to={"/signin"}/>
+                <Bottonlink label="are you already an existing user?" bottontext="Sign in" to={"/"}/>
                 <div className="px-2">
                   {userExits? "user already exits": ''}
               </div>
