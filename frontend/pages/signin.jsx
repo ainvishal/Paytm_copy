@@ -26,14 +26,7 @@ export function Signin() {
                                 const responce = await axios.post(`https://paytm-copy-server.vercel.app/api/v1/user/signin`, {
                                     email: email,
                                     password: password
-                                },{
-                                    headers: {
-                                      'Content-Type': 'application/json',
-                                      'Access-Control-Allow-Origin': 'https://paytm-copy-client.vercel.app',
-                                      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Z-Key',
-                                      'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS'
-                                    }
-                                  })
+                                })
                                 if( responce.data.token){
                                     localStorage.setItem('responce', responce.data.token);
                                     navigate('/dashbord')
