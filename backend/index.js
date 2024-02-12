@@ -9,7 +9,7 @@ const port = 3000;
 //     origin:'https://paytm-copy-client.vercel.app'
 // }))
 
-app.use((res, req, next) => {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://paytm-copy-client.vercel.app");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
