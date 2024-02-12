@@ -6,7 +6,7 @@ const port = 3000;
 
 
 app.use(cors({
-    origin:'https://paytm-copy-client.vercel.app/'
+    origin:'https://paytm-copy-client.vercel.app'
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
