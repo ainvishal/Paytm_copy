@@ -35,13 +35,6 @@ export function Signup() {
                         firstName:firstName,
                         lastName:lastName,
                         password:password
-                      },{
-                        headers: {
-                          'Content-Type': 'application/json',
-                          'Access-Control-Allow-Origin': '*',
-                          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Z-Key',
-                          'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS'
-                        }
                       })
                       if(responce.data.token ){
                         localStorage.setItem('responce', responce.data.token);
