@@ -18,7 +18,7 @@ export function Users() {
             const user = responce.data.user;
             const filter = localStorage.getItem('name')
             
-            setuser(user.filter(u => u.firstName === filter))
+            setuser(user.filter(u => u.firstName != filter))
         }
         getUsers()
     }, [name])
