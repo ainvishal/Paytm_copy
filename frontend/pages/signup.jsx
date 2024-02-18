@@ -38,6 +38,7 @@ export function Signup() {
                       })
                       if(responce.data.token ){
                         localStorage.setItem('responce', responce.data.token);
+                        localStorage.setItem('name', responce.data.name)
                         history('/dashbord')
                       }
                       setexits(responce.data.exits);

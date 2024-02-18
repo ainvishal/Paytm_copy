@@ -15,7 +15,10 @@ export function Users() {
                     filter: name
                 }
             })
-            setuser(responce.data.user)
+            const user = responce.data.user;
+            const filter = localStorage.getItem('name')
+            
+            setuser(user.filter(u => u.firstName === filter))
         }
         getUsers()
     }, [name])

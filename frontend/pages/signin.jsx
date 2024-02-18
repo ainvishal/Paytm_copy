@@ -29,6 +29,7 @@ export function Signin() {
                                 })
                                 if( responce.data.token){
                                     localStorage.setItem('responce', responce.data.token);
+                                    localStorage.setItem('name', responce.data.name)
                                     navigate('/dashbord')
                                 }
                                 setuser(responce.data.exits)

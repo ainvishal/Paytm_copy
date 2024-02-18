@@ -50,6 +50,7 @@ userRoute.post('/signup', async(req, res) => {
         res.status(200).json({
             msg:'user is succesfully created',
             token: token,
+            name: firstName,
             exits: false
         })
     }
@@ -88,8 +89,10 @@ userRoute.post('/signin', async (req, res) => {
     try{
         const userid = existingUser._id
         const token = jwt.sign({userid}, JWT_SECRET);
+        const name = existingUser.firstName;
         res.status(200).json({
             token : token,
+            name : name,
             exits: false
         })
     }catch(err) {
