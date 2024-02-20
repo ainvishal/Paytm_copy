@@ -24,10 +24,10 @@ export function Signup() {
               <div className="w-80 h-max bg-white text-center rounded-lg px-2 py-2 ">
                 <Heading label="Sign Up"/>
                 <Subheading label="Enter your information to create an account" />
-                <Inputfield label="First Name" placeholder="first name" value={firstName} onchange={(e) => {setfname(e.target.value)}}/>
+                <Inputfield label="First Name" placeholder="first name" type="text" value={firstName} onchange={(e) => {setfname(e.target.value)}}/>
                 <Inputfield label="Last Name" placeholder="last name" value={lastName} onchange={(e) => {setlname(e.target.value)}}/>
                 <Inputfield label="Email" placeholder="Email" value={email} onchange={(e) => {setemail(e.target.value)}}/>
-                <Inputfield label="Password" placeholder="password" value={password} onchange={(e) => {setpass(e.target.value)}}/>
+                <Inputfield label="Password" placeholder="password" type="password" value={password} onchange={(e) => {setpass(e.target.value)}}/>
                 <div className="py-2 px-2">
                   <Button label="Sign up"   onclick={ async() => {
                       const responce = await axios.post(`https://paytm-copy-server.vercel.app/api/v1/user/signup`,{

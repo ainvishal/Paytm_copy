@@ -19,8 +19,8 @@ export function Signin() {
                     <div className="w-80 h-max bg-white text-center rounded-lg px-2 py-2">
                         <Heading label={"Sign in"} />
                         <Subheading label={"Enter your details and log in"}/>
-                        <Inputfield label={"Email"} value={email} onchange={e => setmail(e.target.value)} placeholder={"email"}/>
-                        <Inputfield label={"Password"} value={password} onchange={e => setpassword(e.target.value)} placeholder={"password"}/>
+                        <Inputfield label={"Email"} value={email} type="text" onchange={e => setmail(e.target.value)} placeholder={"email"}/>
+                        <Inputfield label={"Password"} value={password} type="password" onchange={e => setpassword(e.target.value)} placeholder={"password"}/>
                         <div className="py-2 px-2">
                             <Button label={"Sign in"} onclick={ async() => {
                                 const responce = await axios.post(`https://paytm-copy-server.vercel.app/api/v1/user/signin`, {
