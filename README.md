@@ -2,7 +2,7 @@
 
 # Transaction application
 
-This is a simple mern stack application that creats, stores and manages the users aswell as their transactions. It implements  CRUD operations with database and uses RESTful api
+This is a simple mern stack application that creates, stores, and manages the users as well as their transactions. It implements  CRUD operations with a database and uses RESTful API
 
 
 ## Framwork/Stack used
